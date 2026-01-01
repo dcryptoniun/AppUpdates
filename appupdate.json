@@ -3,7 +3,7 @@
     {
       "package_name": "com.gerstudio.ballpitblitz",
       "app_name": "Ball Pit Blitz",
-      "latest_version": "0.3.7",
+      "latest_version": "0.3.9",
       "min_version": "0.3.0",
       "update_type": "critical",
       "update_message": "New features and bug fixes available!",
