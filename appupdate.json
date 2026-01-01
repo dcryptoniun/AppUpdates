@@ -1,0 +1,48 @@
+{
+  "games": [
+    {
+      "name": "Game One",
+      "version": "1.0.0",
+      "releaseDate": "2024-01-15",
+      "status": "stable",
+      "description": "An exciting adventure game"
+    },
+    {
+      "name": "Game Two",
+      "version": "2.3.1",
+      "releaseDate": "2024-06-20",
+      "status": "stable",
+      "description": "Fast-paced action shooter"
+    },
+    {
+      "name": "Game Three",
+      "version": "0.9.5",
+      "releaseDate": "2024-11-10",
+      "status": "beta",
+      "description": "Strategic puzzle game in development"
+    }
+  ],
+  "apps": [
+    {
+      "name": "App One",
+      "version": "3.2.0",
+      "releaseDate": "2024-03-22",
+      "status": "stable",
+      "description": "Productivity application"
+    },
+    {
+      "name": "App Two",
+      "version": "1.5.8",
+      "releaseDate": "2024-08-14",
+      "status": "stable",
+      "description": "Communication tool"
+    },
+    {
+      "name": "App Three",
+      "version": "0.8.0",
+      "releaseDate": "2024-12-01",
+      "status": "alpha",
+      "description": "Experimental utility app"
+    }
+  ]
+}
