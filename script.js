@@ -7,25 +7,12 @@ async function loadAppUpdates() {
         }
         const data = await response.json();
         
-        displayGames(data.games);
         displayApps(data.apps);
         updateLastUpdated();
     } catch (error) {
         console.error('Error loading app updates:', error);
-        showError('games-list');
         showError('apps-list');
     }
-}
-
-function displayGames(games) {
-    const gamesContainer = document.getElementById('games-list');
-    
-    if (!games || games.length === 0) {
-        gamesContainer.innerHTML = '<div class="loading">No games available</div>';
-        return;
-    }
-    
-    gamesContainer.innerHTML = games.map(game => createItemCard(game)).join('');
 }
 
 function displayApps(apps) {
@@ -36,37 +23,26 @@ function displayApps(apps) {
         return;
     }
     
-    appsContainer.innerHTML = apps.map(app => createItemCard(app)).join('');
+    appsContainer.innerHTML = apps.map(app => createAppCard(app)).join('');
 }
 
-function createItemCard(item) {
-    const statusClass = `status-${item.status || 'stable'}`;
-    const formattedDate = formatDate(item.releaseDate);
+function createAppCard(app) {
+    const statusClass = `status-${app.update_type || 'optional'}`;
+    const storeLink = app.store_url ? `<a href="${escapeHtml(app.store_url)}" target="_blank" rel="noopener noreferrer" class="store-link">View in Store</a>` : '';
     
     return `
         <div class="item-card">
             <div class="item-header">
-                <h3 class="item-name">${escapeHtml(item.name)}</h3>
-                <div class="item-version">v${escapeHtml(item.version)}</div>
-                <span class="status-badge ${statusClass}">${escapeHtml(item.status || 'stable')}</span>
+                <h3 class="item-name">${escapeHtml(app.app_name)}</h3>
+                <div class="item-version">v${escapeHtml(app.latest_version)}</div>
+                <span class="status-badge ${statusClass}">${escapeHtml(app.update_type || 'optional')}</span>
             </div>
-            <p class="item-description">${escapeHtml(item.description || 'No description available')}</p>
-            <p class="item-date">Released: ${formattedDate}</p>
+            <p class="item-package">${escapeHtml(app.package_name)}</p>
+            <p class="item-description">${escapeHtml(app.update_message || 'No update message available')}</p>
+            <p class="item-min-version">Minimum version: ${escapeHtml(app.min_version)}</p>
+            ${storeLink}
         </div>
     `;
-}
-
-function formatDate(dateString) {
-    if (!dateString) return 'Unknown';
-    
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) return dateString;
-    
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
 }
 
 function escapeHtml(text) {
