@@ -23,9 +23,9 @@
     {
   "package_name": "com.gerstudio.lastwarzombie",
   "app_name": "Last War-Zombie",
-  "latest_version": "0.1.8",
+  "latest_version": "0.1.9",
   "min_version": "0.1.5",
-  "update_type": "critical",
+  "update_type": "optional",
   "update_message": "New features and bug fixes available!",
   "store_url": "https://play.google.com/store/apps/details?id=com.gerstudio.lastwarzombie",
   "force_update_message": "This update is required to continue playing."
