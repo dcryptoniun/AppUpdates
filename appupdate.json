@@ -23,7 +23,7 @@
     {
   "package_name": "com.gerstudio.lastwarzombie",
   "app_name": "Last War-Zombie",
-  "latest_version": "0.2.4",
+  "latest_version": "0.2.5",
   "min_version": "0.1.5",
   "update_type": "optional",
   "update_message": "New features and bug fixes available!",
